@@ -5,9 +5,18 @@
 #include <QVector>
 #include <QMap>
 
-#include "people.h"
-#include "gamedata.h"
 #include "randomnumber.h"
+#include "gamedata.h"
+#include "people.h"
+
+/*
+ * - GameData
+ * - - RandomNumber
+ *
+ * - PeopleArray
+ * - - People
+ *
+ */
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

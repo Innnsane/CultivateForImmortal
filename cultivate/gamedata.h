@@ -1,32 +1,40 @@
 #ifndef GAMEDATA_H
 #define GAMEDATA_H
 
-#include "mainwindow.h"
+#include <QMap>
+#include <QString>
 
-const QVector<QString> statusBasicKeyName = {
-    "strength", "magic"
-};
-const QVector<QString> statusKeyName = {
-    "strength", "weapon", "magic", "instrument", "craft", "construct", "drawing", "garden", "medicine"
-};
-const QVector<QString> talentKeyName = {
-    "strength", "weapon", "magic", "instrument", "craft", "construct", "drawing", "garden", "medicine"
-};
-const QVector<QString> personalityKeyName = {
-    "loyalty", "radical"
-};
+#include "people.h"
+#include "randomnumber.h"
 
 enum class PeopleBehavior: int
-    {GETIN, IMPROVE, UPGRADE, MISSIONSTART, MISSIONCOMPLISHED, DEAD};
+    {GETIN, IMPROVE, UPGRADE, MISSIONSTART, MISSIONCOMPLISHED, DEAD, END};
 
-class GameData
-{
+enum class PeopleLocation: int
+    {ATHOME, GRAVE, ADVENTURE, MISSION, BATTLEFIELD, END};
+
+enum class BasicStatusKey: int
+    {STRENGTH, MAGIC, END};
+
+enum class AllStatusKey: int
+    {STRENGTH, MAGIC, WEAPON, INSTRUMENT, CRAFT, CONSTRUCT, DRAWING, GARDEN, MEDICINE, DOLL, END};
+
+enum class PersonalityKey: int
+    {LOYALTY, RADICAL, END};
+
+
+class GameData {
 public:
     GameData();
-    QVector<People> peopleArray;
+    const QMap<int, QString> allStatusKeyName;
+    const QMap<int, QString> basicStatusKeyName;
+    const QMap<int, QString> personalityKeyName;
 
-    void peopleRecruit(double, int);
+private:
+    RandomNumber random;
 
+public:
+    RandomNumber& getRandom();
 };
 
 // global variable

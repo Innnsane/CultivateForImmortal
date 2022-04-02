@@ -13,6 +13,16 @@ RandomNumber::RandomNumber():
     getRandomUniform();
 }
 
+RandomNumber::RandomNumber(int seed):
+    useTime(0),
+    createTime(QTime::currentTime()),
+    randomEngine(std::default_random_engine(static_cast<unsigned int>(createTime.msec() + seed))),
+    distributionNormal(std::normal_distribution<double>(50, 16.67)),
+    distributionUniform(std::uniform_int_distribution<int>(0,100))
+{
+    getRandomUniform();
+}
+
 int RandomNumber::getRandomUniform(){
     useTime += 1;
     return distributionUniform(randomEngine);

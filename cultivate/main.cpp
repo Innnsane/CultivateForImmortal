@@ -20,6 +20,6 @@ void test(MainWindow& w){
     RandomNumber *random = new RandomNumber();
 
     qDebug() << random->getRandomUniform();
-    gameDataGlobal.peopleRecruit(1, 3);
+    peopleArrayGlobal.peopleRecruitUniform(1, 3);
     w.displayPeopleStatus();
 }

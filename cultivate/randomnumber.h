@@ -8,6 +8,8 @@ class RandomNumber
 
 public:
     RandomNumber();
+    RandomNumber(int seed);
+
     int getRandomUniform();
     double getRandomNormal();
     void test();
